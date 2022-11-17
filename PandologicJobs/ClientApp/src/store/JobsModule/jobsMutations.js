@@ -7,7 +7,7 @@ export const Mutations = {
         state.loading = false;
     },
     SET_CHART_ERROR(state, { error }) {
-        console.log('SET_CHART_ERROR : ' + data);
-        state.error = error;
+        console.log('SET_CHART_ERROR : ' + error);
+        state.error = 'ERROR : ' + error;
     }
 };

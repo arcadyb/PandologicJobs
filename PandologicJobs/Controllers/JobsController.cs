@@ -32,6 +32,7 @@ namespace PandologicJobs.Controllers
         [HttpGet]
         public async Task<GChartDataTable> Get(int pageId)
         {
+           // throw new HttpRequestException("test exception");
             try
             {
                 var ret = await _jobsRepo.GetPageGobs(pageId);

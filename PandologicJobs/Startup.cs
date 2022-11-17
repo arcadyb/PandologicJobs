@@ -73,7 +73,7 @@ namespace PandologicJobs
                 if (env.IsDevelopment())
                 {
                     spa.Options.SourcePath = "ClientApp";
-                    spa.Options.DevServerPort = 8087;
+                    spa.Options.DevServerPort = 8088;
                     spa.UseReactDevelopmentServer(npmScript: "start");
                 }
             });

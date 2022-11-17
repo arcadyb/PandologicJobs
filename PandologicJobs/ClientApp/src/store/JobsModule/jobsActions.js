@@ -23,12 +23,25 @@ export const Actions = {
         try{
         const furl = 'Jobs/?pageId='+ pageNum;
             const Response = await fetch(furl);
-            Response.json().then((data) => {
-                const googledata = ToGoogle(data.dataTable);
+            if (Response.ok) {
+                Response.json().then((data) => {
+                    if (Response.ok) {
+                        const googledata = ToGoogle(data.dataTable);
 
-                commit('SET_CHART_DATA', { page: pageNum, data: googledata });
- 
-            });
+                        commit('SET_CHART_DATA', { page: pageNum, data: googledata });
+
+                    }
+                    else {
+                        commit('SET_CHART_ERROR', { error: data });
+                        console.log(data);
+                    }
+
+                });
+            }
+            else {
+                commit('SET_CHART_ERROR', { Response });
+                console.log(Response);
+            }
         }
         catch(error)
         {
