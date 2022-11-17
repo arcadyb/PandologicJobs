@@ -31,9 +31,10 @@ namespace TestProject
         [Fact]
         public async Task GetJobsTestAsync()
         {
+            var pageId = 1;
             _mockDataService.Setup(repo => repo.GetPageGobs(1))
                 .Returns(Task.FromResult(new GChartDataTable() ));
-            var result = await _controller.Get(1);
+            var result = await _controller.Get(pageId);
             //Assert
 
             Assert.IsType<GChartDataTable>(result);
